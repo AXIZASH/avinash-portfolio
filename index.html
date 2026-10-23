@@ -6,197 +6,346 @@
 <title>PINNINTI AVINASH REDDY — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0f1a;
-  --panel:#14192b;
-  --card:#1a2036;
-  --border:#2a3355;
-  --text:#e6ecff;
-  --muted:#8a93b8;
-  --red:#ff3b3b;
-  --blue:#3b8cff;
-  --green:#3bff8a;
-  --yellow:#ffd83b;
-  --purple:#a855f7;
-  --cyan:#00e0ff;
+  --bg:#0a0b10;
+  --bg2:#10121a;
+  --card:rgba(255,255,255,0.04);
+  --card-border:rgba(255,255,255,0.08);
+  --text:#e8eaf0;
+  --muted:#9aa0b4;
+  --accent:#ff3e6c;
+  --accent2:#7c5cff;
+  --accent3:#00e0ff;
+  --glow:0 0 40px rgba(255,62,108,0.35);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);color:var(--text);overflow-x:hidden;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%,#fff,transparent),
-    radial-gradient(1px 1px at 60% 70%,#fff,transparent),
-    radial-gradient(1px 1px at 80% 20%,#fff,transparent),
-    radial-gradient(1px 1px at 40% 80%,#fff,transparent),
-    radial-gradient(1px 1px at 10% 60%,#fff,transparent),
-    radial-gradient(1px 1px at 90% 50%,#fff,transparent);
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(600px circle at 10% 20%, rgba(124,92,255,0.18), transparent 60%),
+    radial-gradient(700px circle at 90% 10%, rgba(255,62,108,0.16), transparent 60%),
+    radial-gradient(800px circle at 50% 100%, rgba(0,224,255,0.12), transparent 60%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center, black 40%, transparent 80%);
 }
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
-  padding:16px 40px;background:rgba(11,15,26,0.85);backdrop-filter:blur(10px);
-  border-bottom:2px solid var(--border);
+  padding:18px 40px;
+  backdrop-filter:blur(12px);
+  background:rgba(10,11,16,0.6);
+  border-bottom:1px solid var(--card-border);
 }
-nav .logo{font-family:'Press Start 2P';font-size:12px;color:var(--red);text-shadow:0 0 10px var(--red)}
-nav ul{display:flex;gap:24px;list-style:none}
-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color .2s}
-nav a:hover{color:var(--yellow)}
+nav .logo{font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+nav a:hover{color:var(--text)}
 .hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:100px 40px 60px;text-align:center;position:relative;
+  min-height:100vh;display:flex;align-items:center;padding:120px 40px 60px;
+  position:relative;
 }
-.crewmate{
-  width:120px;height:150px;margin:0 auto 30px;position:relative;
-  animation:bob 2s ease-in-out infinite;
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,62,108,0.1);border:1px solid rgba(255,62,108,0.3);
+  color:var(--accent);font-size:13px;font-weight:600;margin-bottom:24px;
 }
-.crewmate .body{width:100px;height:120px;background:var(--red);border-radius:50px 50px 20px 20px;margin:0 auto;position:relative;box-shadow:inset -10px -10px 0 rgba(0,0,0,0.2)}
-.crewmate .visor{position:absolute;top:30px;left:15px;width:70px;height:40px;background:#8fd3ff;border-radius:20px;box-shadow:inset 0 0 0 4px #1a2036}
-.crewmate .visor::after{content:"";position:absolute;top:8px;left:12px;width:20px;height:12px;background:rgba(255,255,255,0.6);border-radius:6px;transform:rotate(-10deg)}
-.crewmate .legs{display:flex;justify-content:space-between;width:80px;margin:0 auto;margin-top:-5px}
-.crewmate .leg{width:30px;height:25px;background:var(--red);border-radius:0 0 12px 12px}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.hero h1{font-family:'Press Start 2P';font-size:clamp(18px,4vw,36px);color:var(--text);margin-bottom:16px;line-height:1.4}
-.hero h1 span{color:var(--red);text-shadow:0 0 12px var(--red)}
-.hero .role{font-size:18px;color:var(--yellow);margin-bottom:24px;font-weight:600}
-.hero .desc{max-width:640px;margin:0 auto 32px;color:var(--muted);font-size:15px;line-height:1.7}
-.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:transform .2s;border:2px solid}
-.btn-red{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 0 20px rgba(255,59,59,0.4)}
-.btn-red:hover{transform:translateY(-3px)}
-.btn-outline{background:transparent;color:var(--text);border-color:var(--border)}
-.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
-.section{padding:80px 40px;max-width:1100px;margin:0 auto}
-.section-title{font-family:'Press Start 2P';font-size:clamp(14px,3vw,22px);color:var(--yellow);margin-bottom:12px;text-shadow:0 0 10px rgba(255,216,59,0.4)}
-.section-sub{color:var(--muted);font-size:14px;margin-bottom:48px}
-.card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--red);transform:translateX(4px)}
-.card h3{font-size:18px;font-weight:700;margin-bottom:4px}
-.card .company{color:var(--blue);font-weight:600;font-size:14px}
-.card .dates{color:var(--muted);font-size:13px;margin:6px 0 12px}
-.card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
-.card li{color:var(--muted);font-size:14px;padding-left:18px;position:relative}
-.card li::before{content:"▸";position:absolute;left:0;color:var(--red)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.skill-card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:20px}
-.skill-card h4{font-size:15px;font-weight:700;margin-bottom:12px;color:var(--cyan)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:5px 10px;border-radius:6px;background:rgba(255,255,255,0.06);border:1px solid var(--border);font-size:12px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.contact-item{display:flex;align-items:center;gap:14px;padding:16px;border-radius:12px;background:var(--card);border:2px solid var(--border);text-decoration:none;color:var(--text);transition:border-color .2s}
-.contact-item:hover{border-color:var(--yellow)}
-.contact-item .ci{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--red);font-size:18px}
-.contact-item .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.contact-item .val{font-size:14px;font-weight:600}
-footer{text-align:center;padding:30px;color:var(--muted);font-size:12px;border-top:2px solid var(--border)}
-@media(max-width:768px){nav ul{display:none}.contact-grid{grid-template-columns:1fr}.section{padding:60px 20px}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.6}}
+h1{font-family:'Space Grotesk';font-size:clamp(40px,7vw,84px);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:16px}
+h1 .grad{
+  background:linear-gradient(120deg,var(--accent),var(--accent2),var(--accent3));
+  background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradshift 6s ease infinite;
+}
+@keyframes gradshift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.subtitle{font-size:20px;color:var(--muted);margin-bottom:32px;max-width:520px}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  padding:14px 28px;border-radius:12px;font-weight:600;font-size:15px;
+  text-decoration:none;transition:transform .3s,box-shadow .3s;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:10px;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 60px rgba(255,62,108,0.5)}
+.btn-ghost{background:var(--card);color:var(--text);border:1px solid var(--card-border);backdrop-filter:blur(8px)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--accent)}
+.hero-card{
+  background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+  border:1px solid var(--card-border);border-radius:24px;padding:32px;
+  backdrop-filter:blur(16px);position:relative;overflow:hidden;
+  animation:float 6s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-card::before{
+  content:"";position:absolute;inset:-1px;border-radius:24px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;-webkit-mask-composite:xor;padding:1px;opacity:.4;
+}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.stat{padding:16px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid var(--card-border)}
+.stat .num{font-family:'Space Grotesk';font-size:28px;font-weight:700;
+  background:linear-gradient(90deg,var(--accent),var(--accent3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.info-row{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.info-row div{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.info-row svg{width:16px;height:16px;color:var(--accent)}
+section{padding:100px 40px;max-width:1200px;margin:0 auto}
+.section-title{
+  font-family:'Space Grotesk';font-size:clamp(32px,5vw,52px);font-weight:700;
+  margin-bottom:12px;letter-spacing:-1px;
+}
+.section-sub{color:var(--muted);font-size:16px;margin-bottom:60px;max-width:600px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--accent),var(--accent2),var(--accent3));opacity:.4}
+.t-item{position:relative;margin-bottom:48px}
+.t-dot{position:absolute;left:-32px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 20px var(--accent);border:2px solid var(--bg)}
+.t-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:28px;
+  backdrop-filter:blur(12px);transition:transform .4s,border-color .4s;
+}
+.t-card:hover{transform:translateX(6px);border-color:var(--accent)}
+.t-card h3{font-size:20px;font-weight:700;margin-bottom:4px}
+.t-card .company{color:var(--accent);font-weight:600;font-size:14px;margin-bottom:4px}
+.t-card .dates{color:var(--muted);font-size:13px;margin-bottom:14px}
+.t-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.t-card li{color:var(--muted);font-size:14px;padding-left:20px;position:relative}
+.t-card li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-weight:700}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.skill-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:26px;
+  transition:transform .4s,border-color .4s,box-shadow .4s;
+}
+.skill-card:hover{transform:translateY(-6px);border-color:var(--accent2);box-shadow:0 10px 40px rgba(124,92,255,0.2)}
+.skill-card h4{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.skill-card h4 .icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:16px}
+.skill-card .chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
+  font-size:12px;color:var(--text);transition:background .3s}
+.chip:hover{background:rgba(255,62,108,0.15);border-color:var(--accent)}
+.edu-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:32px;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.edu-icon{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent2),var(--accent3));font-size:28px}
+.edu-card h3{font-size:20px;font-weight:700}
+.edu-card p{color:var(--muted);font-size:14px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-item{
+  display:flex;align-items:center;gap:16px;padding:18px;border-radius:14px;
+  background:var(--card);border:1px solid var(--card-border);text-decoration:none;color:var(--text);
+  transition:transform .3s,border-color .3s;
+}
+.contact-item:hover{transform:translateX(6px);border-color:var(--accent)}
+.contact-item .ci{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));flex-shrink:0}
+.contact-item .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.contact-item .val{font-size:15px;font-weight:600}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--card-border)}
+@media(max-width:900px){
+  nav ul{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  nav{padding:14px 20px}
+  section{padding:70px 20px}
+  .hero{padding:100px 20px 40px}
+}
+.floating-blob{position:fixed;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:.35;pointer-events:none;z-index:-1;animation:drift 12s ease-in-out infinite}
+.blob1{background:var(--accent);top:10%;left:-5%}
+.blob2{background:var(--accent2);bottom:10%;right:-5%;animation-delay:-6s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-40px)}}
 </style>
 </head>
 <body>
+<div class="floating-blob blob1"></div>
+<div class="floating-blob blob2"></div>
 <nav>
-  <div class="logo">AMONG US · PORTFOLIO</div>
+  <div class="logo">AVINASH REDDY</div>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#experience">Tasks</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <section class="hero" id="about">
-  <div>
-    <div class="crewmate">
-      <div class="body"><div class="visor"></div></div>
-      <div class="legs"><div class="leg"></div><div class="leg"></div></div>
+  <div class="hero-inner">
+    <div>
+      <div class="tag">Available for opportunities</div>
+      <h1>Hi, I'm<br><span class="grad">Avinash Reddy</span></h1>
+      <p class="subtitle">Application Support Engineer with 4.5 years of experience delivering SLA-driven technical support, troubleshooting production issues, and ensuring reliable enterprise applications.</p>
+      <div class="cta">
+        <a href="#contact" class="btn btn-primary">Get in touch →</a>
+        <a href="#experience" class="btn btn-ghost">View experience</a>
+      </div>
     </div>
-    <h1>PINNINTI <span>AVINASH REDDY</span></h1>
-    <div class="role">Application Support Engineer</div>
-    <p class="desc">Application Support Engineer with 4.5 years of experience in application support, technical troubleshooting, SQL, incident management, and SLA-driven customer support. Experienced in troubleshooting production issues, performing root cause analysis, managing support tickets, and collaborating with cross-functional teams.</p>
-    <div class="btns">
-      <a href="#contact" class="btn btn-red">Emergency Meeting</a>
-      <a href="#experience" class="btn btn-outline">View Tasks</a>
+    <div class="hero-card">
+      <div class="info-row">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>pavinashreddy24@gmail.com</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>63028 24035</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Hyderabad, Telangana, IND</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>github.com/axizash</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="num">4.5</div><div class="lbl">Years Exp</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Companies</div></div>
+        <div class="stat"><div class="num">ITIL</div><div class="lbl">Certified mindset</div></div>
+        <div class="stat"><div class="num">SLA</div><div class="lbl">Driven Support</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="experience">
-  <h2 class="section-title">TASKS · WORK EXPERIENCE</h2>
-  <p class="section-sub">Missions completed across enterprise support.</p>
-  <div class="card reveal">
-    <h3>Assistant Systems Engineer</h3>
-    <div class="company">Tata Consultancy Services (TCS)</div>
-    <div class="dates">06/2021 – 12/2022 · Hyderabad</div>
-    <ul>
-      <li>Provided L1 technical support for enterprise web applications, diagnosing and resolving customer-reported issues.</li>
-      <li>Managed support tickets using Cherwell ITSM, prioritizing incidents based on business impact and SLA requirements.</li>
-      <li>Troubleshot application failures using SQL and Boomi monitoring tools, helping reduce downtime and improve operational reliability.</li>
-      <li>Performed user access provisioning and access-related troubleshooting on UNIX systems while adhering to security requirements.</li>
-      <li>Created knowledge-base articles and troubleshooting documentation to reduce recurring incidents.</li>
-    </ul>
-  </div>
-  <div class="card reveal">
-    <h3>Systems Engineer</h3>
-    <div class="company">Tata Consultancy Services (TCS)</div>
-    <div class="dates">01/2023 – 12/2024 · Hyderabad</div>
-    <ul>
-      <li>Performed root cause analysis (RCA) for production issues using SQL and supported permanent fixes to improve application stability.</li>
-      <li>Managed critical production incidents and provided timely status updates and technical information to stakeholders.</li>
-      <li>Collaborated with development teams to troubleshoot complex application issues and ensure timely ticket resolution.</li>
-      <li>Proactively monitored applications to identify issues and support improvements in system performance and reliability.</li>
-      <li>Assisted end users with technical issues and provided guidance on application functionality.</li>
-    </ul>
-  </div>
-  <div class="card reveal">
-    <h3>Operations Customer Expert – Technical Support Executive</h3>
-    <div class="company">Teleperformance</div>
-    <div class="dates">08/2025 – 08/2026 · Hyderabad</div>
-    <ul>
-      <li>Resolved technical support cases by investigating reported issues and providing accurate troubleshooting guidance.</li>
-      <li>Managed customer cases through ticketing systems while maintaining SLA compliance and high customer satisfaction.</li>
-      <li>Analyzed complex issues and escalated them to specialized internal teams with detailed technical findings.</li>
-      <li>Maintained accurate case notes, recurring-issue documentation, and knowledge articles.</li>
-      <li>Collaborated with cross-functional teams for timely issue resolution and effective customer communication.</li>
-    </ul>
+<section id="experience">
+  <h2 class="section-title reveal">Work <span class="grad">Experience</span></h2>
+  <p class="section-sub reveal">A journey through enterprise application support, incident management, and customer success.</p>
+  <div class="timeline">
+    <div class="t-item reveal">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <h3>Assistant Systems Engineer</h3>
+        <div class="company">Tata Consultancy Services (TCS)</div>
+        <div class="dates">06/2021 – 12/2022 · Hyderabad</div>
+        <ul>
+          <li>Provided L1 technical support for enterprise web applications, diagnosing and resolving customer-reported issues.</li>
+          <li>Managed support tickets using Cherwell ITSM, prioritizing incidents based on business impact and SLA requirements.</li>
+          <li>Troubleshot application failures using SQL and Boomi monitoring tools, helping reduce downtime and improve operational reliability.</li>
+          <li>Performed user access provisioning and access-related troubleshooting on UNIX systems while adhering to security requirements.</li>
+          <li>Created knowledge-base articles and troubleshooting documentation to reduce recurring incidents and improve team productivity.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <h3>Systems Engineer</h3>
+        <div class="company">Tata Consultancy Services (TCS)</div>
+        <div class="dates">01/2023 – 12/2024 · Hyderabad</div>
+        <ul>
+          <li>Performed root cause analysis (RCA) for production issues using SQL and supported the implementation of permanent fixes to improve application stability.</li>
+          <li>Managed critical production incidents and provided timely status updates and technical information to stakeholders.</li>
+          <li>Collaborated with development teams to troubleshoot complex application issues and ensure timely ticket resolution.</li>
+          <li>Proactively monitored applications to identify issues and support improvements in system performance and reliability.</li>
+          <li>Assisted end users with technical issues and provided guidance on application functionality.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <h3>Operations Customer Expert – Technical Support Executive</h3>
+        <div class="company">Teleperformance</div>
+        <div class="dates">08/2025 – 08/2026 · Hyderabad</div>
+        <ul>
+          <li>Resolved technical support cases by investigating reported issues and providing accurate troubleshooting guidance.</li>
+          <li>Managed customer cases through ticketing systems while maintaining SLA compliance and delivering high customer satisfaction.</li>
+          <li>Analyzed complex issues and escalated them to specialized internal teams with detailed technical findings and documentation.</li>
+          <li>Maintained accurate case notes, recurring-issue documentation, and knowledge articles to improve support efficiency.</li>
+          <li>Collaborated with cross-functional teams to facilitate timely issue resolution and effective customer communication.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section" id="skills">
-  <h2 class="section-title">SKILLS</h2>
-  <p class="section-sub">Tools and abilities equipped.</p>
+<section id="skills">
+  <h2 class="section-title reveal">Technical <span class="grad">Skills</span></h2>
+  <p class="section-sub reveal">Tools and capabilities I use to keep systems running and users happy.</p>
   <div class="skills-grid">
-    <div class="skill-card reveal"><h4>Technical Proficiency</h4><div class="chips"><span class="chip">SQL</span><span class="chip">Boomi</span><span class="chip">UNIX</span><span class="chip">Cherwell</span><span class="chip">Python</span></div></div>
-    <div class="skill-card reveal"><h4>Documentation</h4><div class="chips"><span class="chip">Confluence</span><span class="chip">Knowledge Base</span><span class="chip">Troubleshooting Guides</span><span class="chip">Process Docs</span></div></div>
-    <div class="skill-card reveal"><h4>Application Support</h4><div class="chips"><span class="chip">Incident Mgmt</span><span class="chip">Troubleshooting</span><span class="chip">SLA Adherence</span><span class="chip">Monitoring</span><span class="chip">RCA</span></div></div>
-    <div class="skill-card reveal"><h4>Professional</h4><div class="chips"><span class="chip">Collaboration</span><span class="chip">User Training</span><span class="chip">Tech Communication</span><span class="chip">Stakeholder Coord</span><span class="chip">User Support</span></div></div>
+    <div class="skill-card reveal">
+      <h4><span class="icon">⚙</span>Technical Proficiency</h4>
+      <div class="chips">
+        <span class="chip">SQL</span><span class="chip">Boomi</span><span class="chip">UNIX</span><span class="chip">Cherwell (ITSM)</span><span class="chip">Python</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4><span class="icon">📄</span>Documentation</h4>
+      <div class="chips">
+        <span class="chip">Confluence</span><span class="chip">Knowledge Base Articles</span><span class="chip">Troubleshooting Guides</span><span class="chip">Process Documentation</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4><span class="icon">🛠</span>Application Support</h4>
+      <div class="chips">
+        <span class="chip">Incident Management</span><span class="chip">Troubleshooting</span><span class="chip">SLA Adherence</span><span class="chip">System Monitoring</span><span class="chip">Root Cause Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4><span class="icon">🤝</span>Professional Skills</h4>
+      <div class="chips">
+        <span class="chip">Cross-functional Collaboration</span><span class="chip">User Training</span><span class="chip">Technical Communication</span><span class="chip">Stakeholder Coordination</span><span class="chip">User Support</span><span class="chip">Operational Efficiency</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section" id="education">
-  <h2 class="section-title">EDUCATION</h2>
-  <div class="card reveal">
-    <h3>Bachelor of Technology in Computer Science and Engineering</h3>
-    <div class="company">Malla Reddy Engineering College</div>
-    <div class="dates">06/2017 – 06/2021</div>
+<section id="education">
+  <h2 class="section-title reveal">Education</h2>
+  <div class="edu-card reveal">
+    <div class="edu-icon">🎓</div>
+    <div>
+      <h3>Bachelor of Technology in Computer Science and Engineering</h3>
+      <p>Malla Reddy Engineering College · 06/2017 – 06/2021</p>
+    </div>
   </div>
 </section>
 
-<section class="section" id="contact">
-  <h2 class="section-title">CONTACT · EMERGENCY MEETING</h2>
-  <p class="section-sub">Reach out anytime.</p>
+<section id="contact">
+  <h2 class="section-title reveal">Let's <span class="grad">Connect</span></h2>
+  <p class="section-sub reveal">Reach out for opportunities, collaborations, or a quick chat.</p>
   <div class="contact-grid">
-    <a class="contact-item" href="mailto:pavinashreddy24@gmail.com"><div class="ci">✉</div><div><div class="lbl">Email</div><div class="val">pavinashreddy24@gmail.com</div></div></a>
-    <a class="contact-item" href="tel:+916302824035"><div class="ci">📞</div><div><div class="lbl">Phone</div><div class="val">63028 24035</div></div></a>
-    <a class="contact-item" href="https://github.com/axizash" target="_blank" rel="noopener"><div class="ci">⌥</div><div><div class="lbl">GitHub</div><div class="val">github.com/axizash</div></div></a>
-    <div class="contact-item"><div class="ci">📍</div><div><div class="lbl">Location</div><div class="val">Hyderabad, Telangana, IND</div></div></div>
+    <div class="contact-info reveal">
+      <a class="contact-item" href="mailto:pavinashreddy24@gmail.com">
+        <div class="ci">✉</div>
+        <div><div class="lbl">Email</div><div class="val">pavinashreddy24@gmail.com</div></div>
+      </a>
+      <a class="contact-item" href="tel:+916302824035">
+        <div class="ci">📞</div>
+        <div><div class="lbl">Phone</div><div class="val">63028 24035</div></div>
+      </a>
+      <a class="contact-item" href="https://github.com/axizash" target="_blank" rel="noopener">
+        <div class="ci">⌥</div>
+        <div><div class="lbl">GitHub</div><div class="val">github.com/axizash</div></div>
+      </a>
+      <div class="contact-item">
+        <div class="ci">📍</div>
+        <div><div class="lbl">Location</div><div class="val">Hyderabad, Telangana, IND</div></div>
+      </div>
+    </div>
+    <div class="hero-card reveal" style="animation:none">
+      <h3 style="font-family:'Space Grotesk';font-size:24px;margin-bottom:12px">Summary</h3>
+      <p style="color:var(--muted);font-size:15px;line-height:1.7">Application Support Engineer with 4.5 years of experience in application support, technical troubleshooting, SQL, incident management, and SLA-driven customer support. Experienced in troubleshooting production issues, performing root cause analysis, managing support tickets, and collaborating with cross-functional teams to ensure timely issue resolution. Strong understanding of ITIL-based incident and problem management processes, technical documentation, and customer support.</p>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 PINNINTI AVINASH REDDY · Crewmate on duty</footer>
+<footer>© 2026 PINNINTI AVINASH REDDY · Built with care</footer>
 
 <script>
 const io=new IntersectionObserver(entries=>{
